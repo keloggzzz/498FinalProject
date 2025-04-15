@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faBagShopping,faUser,faPlusCircle, faSoap, faUtensils, faGem, faAppleAlt, faCouch, faShirt, faThList, faCartShopping, faFileInvoice, faIdCard } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faBagShopping,faUser,faPlusCircle, faSoap, faUtensils, faGem, faAppleAlt, faCouch, faShirt, faThList, faCartShopping, faFileInvoice, faIdCard, faLock, faArrowRightFromBracket, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import items from "../Model/items.json"
@@ -8,6 +8,13 @@ export default function LeftNavbar() {
 
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    // Remove auth token from storage or call logout API
+    console.log("User logged out");
+  };
 
   const categories = [
     { name: " Bath & Body", icon: faSoap },
@@ -24,9 +31,15 @@ export default function LeftNavbar() {
   };
 
   const profileOptions = [
+    { name: " Logout", icon: faArrowRightFromBracket},
     { name: " View Profile", icon: faIdCard},
     { name: " View Orders", icon: faFileInvoice },
     { name: " View Cart", icon: faCartShopping },
+  ];
+
+  
+  const profileLogin = [
+    { name: " Login", icon: faLock},
   ];
 
   const toggleProfileOptions = () => {
@@ -82,6 +95,7 @@ export default function LeftNavbar() {
       {/* Options */}
       {showProfileMenu && (
         <div className="ml-10 text-black/40">
+         {!isLoggedIn ? (
           {profileOptions.map((profileOptions, index) => (
             <div
               key={index}
@@ -92,12 +106,23 @@ export default function LeftNavbar() {
             </div>
           ))}
         </div>
-      )}
-
+      )}):(
+        {profileLogin.map((profileLogin, index) => (
+          <div
+            key={index}
+            className="text-md p-2 hover:bg-[#cad9bc] rounded hover:text-black/35 transition duration-300 cursor-pointer"
+          >
+            <FontAwesomeIcon icon={profileLogin.icon} className="text-sm" />
+            {profileLogin.name}
+          </div>
+        ))}
+      )
 
       <div className="ml-4 text-lg p-3 hover:bg-[#cad9bc] hover:text-black/35 hover:transition-discrete duration-400"><a href="/PostItem">
       <FontAwesomeIcon icon={faPlusCircle} className='mr-2'/> Post Item
       </a></div>
     </div>
+
+    
   );
 }
