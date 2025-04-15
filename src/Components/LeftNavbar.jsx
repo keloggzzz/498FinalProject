@@ -8,15 +8,15 @@ export default function LeftNavbar() {
       <h1 className="text-2xl font-bold mb-4">SiteName</h1>
       <div className="border-r border-pink-500"><a href="/Home">Home</a></div>
 
-      <div className="border-r border-pink-500"><a href="/Browse">Browse
+      <div className="border-r border-pink-500"><a href="/Browse">
       <FontAwesomeIcon icon={faBagShopping} /> Browse
       </a></div>
 
-      <div className="border-r border-pink-500"><a href="/Profile">Profile
+      <div className="border-r border-pink-500"><a href="/Profile">
       <FontAwesomeIcon icon={faUser} /> Profile
       </a></div>
 
-      <div className="border-r border-pink-500"><a href="/PostItem">Post Item
+      <div className="border-r border-pink-500"><a href="/PostItem">
       <FontAwesomeIcon icon={faPlusCircle} /> Post Item
       </a></div>
     </div>
