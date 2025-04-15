@@ -1,7 +1,7 @@
 
 export default function ItemCard({ item }) {
     return (
-      <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+      <div className="bg-[#cfcd2] rounded-2xl shadow-md hover:shadow-lg overflow-hidden">
         <img
           src={item.image}
           alt={item.name}
@@ -9,7 +9,7 @@ export default function ItemCard({ item }) {
         />
         <div className="p-4">
           <h3 className="text-xl font-semibold text-[#2e2e2e] mb-1">{item.name}</h3>
-          <p className="text-sm text-gray-600 mb-2">{item.description.slice(0, 60)}...</p>
+          <p className="text-sm text-gray-600 mb-2">{item.description}</p>
           <div className="flex justify-between items-center text-sm mb-2">
             <span className="text-[#a8b2a1] font-medium">${item.price.toFixed(2)}</span>
             <span className="text-gray-500">{item.stock} in stock</span>
