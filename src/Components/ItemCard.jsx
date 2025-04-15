@@ -1,7 +1,7 @@
 
 export default function ItemCard({ item }) {
     return (
-      <div className="bg-[#cfcd2] rounded-2xl shadow-md hover:shadow-lg overflow-hidden">
+      <div className="bg-[#cfcd2] rounded-2xl shadow-md hover:shadow-lg hover:bg-black/10 overflow-hidden">
         <img
           src={item.image}
           alt={item.name}
@@ -12,7 +12,7 @@ export default function ItemCard({ item }) {
           <p className="text-sm text-gray-600 mb-2">{item.description}</p>
           <div className="flex justify-between items-center text-sm mb-2">
             <span className="text-[#a8b2a1] font-medium">${item.price.toFixed(2)}</span>
-            <span className="text-gray-500">{item.stock} in stock</span>
+            {item.stock<10?(<span className="text-red-500">{item.stock} in stock</span>):(<span className="text-gray-500">{item.stock} in stock</span>)}
           </div>
           <p className="text-xs text-gray-400">by {item.seller}</p>
         </div>
