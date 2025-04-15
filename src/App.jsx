@@ -18,6 +18,7 @@ export default function App() {
           <div className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/Home" element={<Home />} />
               <Route path="/Browse" element={<Browse />} />
               <Route path="/Profile" element={<Profile />} />
               <Route path="/PostItem" element={<PostItem />} />
